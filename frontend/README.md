@@ -5,8 +5,8 @@ React app for viewing and filtering logs.
 ## Setup
 
 ```bash
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
 ## Features

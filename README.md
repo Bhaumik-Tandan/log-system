@@ -15,15 +15,15 @@ The system allows you to:
 ### Backend
 ```bash
 cd backend
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ### Frontend  
 ```bash
 cd frontend
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
 The frontend will be at http://localhost:5173 and backend at http://localhost:4000.
@@ -49,8 +49,8 @@ log-system/
 
 - `POST /logs` - Add a new log entry
 - `GET /logs` - Get logs (supports filtering)
-- `GET /logs/levels` - Get available log levels
-- `GET /logs/stats` - Get log statistics
+  - `GET /logs/levels` - Get available log levels
+  - `GET /logs/stats` - Get log statistics
 
 ### Log Format
 ```json
@@ -89,10 +89,10 @@ For the frontend, I went with React + Vite for fast development and Tailwind CSS
 
 ```bash
 # Backend tests
-cd backend && npm test
+cd backend && yarn test
 
 # Frontend linting
-cd frontend && npm run lint
+cd frontend && yarn lint
 ```
 
 ---

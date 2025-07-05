@@ -5,8 +5,8 @@ Express.js API for log management.
 ## Setup
 
 ```bash
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ## API
