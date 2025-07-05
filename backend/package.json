@@ -1,12 +1,21 @@
 {
-  "name": "backend",
+  "name": "log-system-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend API for log management system with proper MVC architecture",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "jest",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "logs",
+    "api",
+    "express",
+    "mvc"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -14,8 +23,15 @@
     "ajv-formats": "^3.0.1",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "date-time": "^4.0.0",
-    "express": "^5.1.0",
-    "fs-extra": "^11.3.0"
+    "dotenv": "^17.0.1",
+    "express": "4.18.2",
+    "fs-extra": "^11.3.0",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
   }
 }

@@ -10,5 +10,15 @@
     "metadata": {
       "test": true
     }
+  },
+  {
+    "level": "error",
+    "message": "Test error",
+    "resourceId": "srv-1",
+    "timestamp": "2025-07-06T00:00:00Z",
+    "traceId": "abc",
+    "spanId": "1",
+    "commit": "deadbeef",
+    "metadata": {}
   }
 ]
