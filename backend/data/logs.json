@@ -20,5 +20,41 @@
     "spanId": "1",
     "commit": "deadbeef",
     "metadata": {}
+  },
+  {
+    "level": "warn",
+    "message": "Test warning message",
+    "resourceId": "test-server",
+    "timestamp": "2025-07-05T20:00:00Z",
+    "traceId": "trace-test",
+    "spanId": "span-test",
+    "commit": "test-commit",
+    "metadata": {
+      "test": true
+    }
+  },
+  {
+    "level": "info",
+    "message": "Test from correct endpoint",
+    "resourceId": "test-server-2",
+    "timestamp": "2025-07-05T20:05:00Z",
+    "traceId": "trace-test-2",
+    "spanId": "span-test-2",
+    "commit": "test-commit-2",
+    "metadata": {
+      "test": true
+    }
+  },
+  {
+    "level": "info",
+    "message": "CORS test successful",
+    "resourceId": "cors-test",
+    "timestamp": "2025-07-05T20:00:00Z",
+    "traceId": "cors-trace",
+    "spanId": "cors-span",
+    "commit": "cors-commit",
+    "metadata": {
+      "test": "cors"
+    }
   }
 ]
