@@ -76,33 +76,35 @@ log-system/
 ### Backend Setup
 ```bash
 cd backend
-npm install
+yarn install
 cp env.example .env
-npm run dev
+yarn start
 ```
 
 ### Frontend Setup
 ```bash
 cd frontend
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
 ### Access the Application
-- **Frontend**: http://localhost:3000
+- **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:4000
 - **API Documentation**: http://localhost:4000
+
+**Note**: The backend is configured to accept CORS requests from `http://localhost:5173`. If you change the frontend port, update the `CORS_ORIGIN` in your `.env` file.
 
 ## 📚 API Endpoints
 
 ### Logs
-- `POST /api/logs` - Create a new log entry
-- `GET /api/logs` - Get all logs with filters
-- `GET /api/logs/levels` - Get available log levels
-- `GET /api/logs/stats` - Get log statistics
-- `GET /api/logs/search?q=query` - Search logs by message
-- `GET /api/logs/level/:level` - Get logs by level
-- `GET /api/logs/resource/:resourceId` - Get logs by resource ID
+- `POST /logs` - Create a new log entry
+- `GET /logs` - Get all logs with filters
+- `GET /logs/levels` - Get available log levels
+- `GET /logs/stats` - Get log statistics
+- `GET /logs/search?q=query` - Search logs by message
+- `GET /logs/level/:level` - Get logs by level
+- `GET /logs/resource/:resourceId` - Get logs by resource ID
 
 ### System
 - `GET /health` - Health check
@@ -158,20 +160,20 @@ npm run dev
 ### Backend Development
 ```bash
 cd backend
-npm run dev          # Start development server
-npm run lint         # Run ESLint
-npm run lint:fix     # Fix ESLint issues
-npm test            # Run tests
+yarn start          # Start development server
+yarn lint           # Run ESLint
+yarn lint:fix       # Fix ESLint issues
+yarn test           # Run tests
 ```
 
 ### Frontend Development
 ```bash
 cd frontend
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run lint         # Run ESLint
-npm run lint:fix     # Fix ESLint issues
+yarn dev            # Start development server
+yarn build          # Build for production
+yarn preview        # Preview production build
+yarn lint           # Run ESLint
+yarn lint:fix       # Fix ESLint issues
 ```
 
 ## 🚀 Deployment
