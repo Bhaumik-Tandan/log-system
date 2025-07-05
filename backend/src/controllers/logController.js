@@ -1,15 +1,9 @@
-const Log = require('../models/Log');
+import Log from '../models/Log.js';
 
 class LogController {
-  /**
-   * Create a new log entry
-   * POST /api/logs
-   */
   static async createLog(req, res) {
     try {
       const logData = req.body;
-      
-      // Create the log entry
       const newLog = await Log.create(logData);
       
       res.status(201).json({
@@ -26,15 +20,9 @@ class LogController {
     }
   }
 
-  /**
-   * Get all logs with optional filters
-   * GET /api/logs
-   */
   static async getLogs(req, res) {
     try {
       const filters = req.query;
-      
-      // Get logs from database
       const logs = await Log.findAll(filters);
       
       res.status(200).json({
@@ -52,10 +40,6 @@ class LogController {
     }
   }
 
-  /**
-   * Get logs by level
-   * GET /api/logs/level/:level
-   */
   static async getLogsByLevel(req, res) {
     try {
       const { level } = req.params;
@@ -85,14 +69,9 @@ class LogController {
     }
   }
 
-  /**
-   * Get logs by resource ID
-   * GET /api/logs/resource/:resourceId
-   */
   static async getLogsByResource(req, res) {
     try {
       const { resourceId } = req.params;
-      
       const logs = await Log.findByResourceId(resourceId);
       
       res.status(200).json({
@@ -110,10 +89,6 @@ class LogController {
     }
   }
 
-  /**
-   * Search logs by message
-   * GET /api/logs/search
-   */
   static async searchLogs(req, res) {
     try {
       const { q: query } = req.query;
@@ -143,10 +118,6 @@ class LogController {
     }
   }
 
-  /**
-   * Get available log levels
-   * GET /api/logs/levels
-   */
   static async getLogLevels(req, res) {
     try {
       const levels = Log.getLevels();
@@ -165,10 +136,6 @@ class LogController {
     }
   }
 
-  /**
-   * Get logs statistics
-   * GET /api/logs/stats
-   */
   static async getLogStats(req, res) {
     try {
       const allLogs = await Log.findAll();
@@ -177,7 +144,7 @@ class LogController {
         total: allLogs.length,
         byLevel: {},
         byResource: {},
-        recentActivity: allLogs.slice(0, 10) // Last 10 logs
+        recentActivity: allLogs.slice(0, 10)
       };
       
       // Count by level
@@ -205,4 +172,4 @@ class LogController {
   }
 }
 
-module.exports = LogController; 
+export default LogController; 

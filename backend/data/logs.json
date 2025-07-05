@@ -56,5 +56,17 @@
     "metadata": {
       "test": "cors"
     }
+  },
+  {
+    "level": "info",
+    "message": "ES modules test",
+    "resourceId": "test-es",
+    "timestamp": "2025-07-05T20:30:00Z",
+    "traceId": "es-test",
+    "spanId": "es-span",
+    "commit": "es-commit",
+    "metadata": {
+      "test": "es-modules"
+    }
   }
 ]

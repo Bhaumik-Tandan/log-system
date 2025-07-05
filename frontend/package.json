@@ -1,7 +1,7 @@
 {
   "name": "log-system-frontend",
   "version": "1.0.0",
-  "description": "Professional log management frontend built with React and Vite",
+  "description": "React frontend for log management",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,7 +28,5 @@
     "tailwindcss": "^3.3.5",
     "vite": "^4.5.0"
   },
-  "keywords": ["react", "vite", "logs", "monitoring", "dashboard"],
-  "author": "",
   "license": "ISC"
 }

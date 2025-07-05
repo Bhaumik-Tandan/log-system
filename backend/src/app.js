@@ -1,96 +1,80 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const bodyParser = require('body-parser');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import bodyParser from 'body-parser';
 
-// Import configuration
-const config = require('./config/app');
+import config from './config/app.js';
+import { logger, requestLogger } from './middleware/logger.js';
+import errorHandler from './middleware/errorHandler.js';
+import logRoutes from './routes/logRoutes.js';
 
-// Import middleware
-const { logger, requestLogger } = require('./middleware/logger');
-const errorHandler = require('./middleware/errorHandler');
-
-// Import routes
-const logRoutes = require('./routes/logRoutes');
-
-// Create Express app
 const app = express();
 
-// Security middleware
+// Security and CORS
 app.use(helmet());
-
-// CORS configuration
 app.use(cors(config.cors));
 
-// Body parsing middleware
+// Parse JSON
 app.use(bodyParser.json({ limit: '10mb' }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Logging middleware
+// Logging
 app.use(logger);
 app.use(requestLogger);
 
-// Health check endpoint
+// Health check
 app.get('/health', (req, res) => {
   res.status(200).json({
     success: true,
-    message: 'Log System API is running',
-    timestamp: new Date().toISOString(),
-    version: '1.0.0'
-  });
-});
-
-// API routes - both /logs and /api/logs for compatibility
-app.use('/logs', logRoutes);
-app.use('/api/logs', logRoutes);
-
-// Root endpoint
-app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Welcome to Log System API',
-    version: '1.0.0',
-    endpoints: {
-      health: '/health',
-      logs: '/api/logs',
-      logLevels: '/api/logs/levels',
-      logStats: '/api/logs/stats',
-      searchLogs: '/api/logs/search',
-      logsByLevel: '/api/logs/level/:level',
-      logsByResource: '/api/logs/resource/:resourceId'
-    }
-  });
-});
-
-// 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: `Route ${req.originalUrl} not found`,
+    message: 'API is running',
     timestamp: new Date().toISOString()
   });
 });
 
-// Global error handler (must be last)
+// Routes
+app.use('/logs', logRoutes);
+app.use('/api/logs', logRoutes);
+
+// API info
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Log System API',
+    endpoints: {
+      health: '/health',
+      logs: '/api/logs',
+      levels: '/api/logs/levels',
+      stats: '/api/logs/stats'
+    }
+  });
+});
+
+// 404
+app.use('*', (req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} not found`
+  });
+});
+
+// Error handling
 app.use(errorHandler);
 
 // Start server
 const PORT = config.port;
 app.listen(PORT, () => {
-  console.log(`🚀 Log System API server running on http://localhost:${PORT}`);
-  console.log(`📊 Environment: ${config.nodeEnv}`);
-  console.log(`⏰ Started at: ${new Date().toISOString()}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
 
-// Graceful shutdown
+// Handle shutdown
 process.on('SIGTERM', () => {
-  console.log('SIGTERM received, shutting down gracefully');
+  console.log('Shutting down...');
   process.exit(0);
 });
 
 process.on('SIGINT', () => {
-  console.log('SIGINT received, shutting down gracefully');
+  console.log('Shutting down...');
   process.exit(0);
 });
 
-module.exports = app; 
+export default app; 

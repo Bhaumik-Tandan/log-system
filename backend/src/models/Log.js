@@ -1,5 +1,5 @@
-const database = require('../config/database');
-const validator = require('../validators/logValidator');
+import { addLog, findLogs } from '../config/database.js';
+import { validateLogEntry, validateFilters } from '../validators/logValidator.js';
 
 class Log {
   constructor(data = {}) {
@@ -15,15 +15,9 @@ class Log {
 
   static async create(logData) {
     try {
-      // Validate the log data
-      validator.validateLogEntry(logData);
-      
-      // Create new log entry
+      validateLogEntry(logData);
       const log = new Log(logData);
-      
-      // Save to database
-      const savedLog = await database.addLog(log);
-      
+      const savedLog = await addLog(log);
       return savedLog;
     } catch (error) {
       throw new Error(`Failed to create log: ${error.message}`);
@@ -32,12 +26,8 @@ class Log {
 
   static async findAll(filters = {}) {
     try {
-      // Validate filters
-      validator.validateFilters(filters);
-      
-      // Get logs from database
-      const logs = await database.findLogs(filters);
-      
+      validateFilters(filters);
+      const logs = await findLogs(filters);
       return logs;
     } catch (error) {
       throw new Error(`Failed to fetch logs: ${error.message}`);
@@ -83,7 +73,7 @@ class Log {
   static getLevelColor(level) {
     const colors = {
       error: 'red',
-      warn: 'yellow',
+      warn: 'yellow', 
       info: 'blue',
       debug: 'gray'
     };
@@ -91,4 +81,4 @@ class Log {
   }
 }
 
-module.exports = Log; 
+export default Log; 

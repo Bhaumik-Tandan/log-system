@@ -1,8 +1,5 @@
-const morgan = require('morgan');
+import morgan from 'morgan';
 
-/**
- * Custom logging format
- */
 const logFormat = (tokens, req, res) => {
   return [
     tokens.method(req, res),
@@ -11,26 +8,12 @@ const logFormat = (tokens, req, res) => {
     tokens.res(req, res, 'content-length'),
     '-',
     tokens['response-time'](req, res),
-    'ms',
-    '-',
-    new Date().toISOString()
+    'ms'
   ].join(' ');
 };
 
-/**
- * Create logger middleware
- */
-const logger = morgan(logFormat, {
-  stream: {
-    write: (message) => {
-      console.log(message.trim());
-    }
-  }
-});
+const logger = morgan(logFormat);
 
-/**
- * Custom request logger for additional logging
- */
 const requestLogger = (req, res, next) => {
   const start = Date.now();
   
@@ -42,4 +25,4 @@ const requestLogger = (req, res, next) => {
   next();
 };
 
-module.exports = { logger, requestLogger }; 
+export { logger, requestLogger }; 
