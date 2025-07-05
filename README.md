@@ -32,17 +32,31 @@ The frontend will be at http://localhost:5173 and backend at http://localhost:40
 
 ```
 log-system/
-├── backend/           # Express API server
+├── backend/
 │   ├── src/
-│   │   ├── controllers/ # API handlers
-│   │   ├── models/    # Data models
-│   │   ├── routes/    # API routes
-│   │   └── config/    # App config
-│   └── data/         # JSON file storage
-└── frontend/         # React app
-    └── src/
-        ├── components/ # UI components
-        └── services/  # API calls
+│   │   ├── app.js
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── utils/
+│   │   └── validators/
+│   ├── data/
+│   ├── package.json
+│   ├── README.md
+│   └── ...
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── index.jsx
+│   │   ├── index.css
+│   │   ├── components/
+│   │   └── services/
+│   ├── package.json
+│   ├── README.md
+│   └── ...
+└── README.md
 ```
 
 ## API Endpoints
