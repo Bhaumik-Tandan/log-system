@@ -24,4 +24,4 @@ yarn dev
 
 ## API Integration
 
-Uses axios to communicate with the backend API. 
+Uses axios to communicate with the backend API.

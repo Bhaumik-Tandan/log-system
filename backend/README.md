@@ -40,4 +40,4 @@ yarn start
 
 ## Data Storage
 
-Uses JSON file storage as required. Data is stored in `data/logs.json`. 
+Uses JSON file storage as required. Data is stored in `data/logs.json`.

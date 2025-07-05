@@ -26,7 +26,7 @@ yarn install
 yarn dev
 ```
 
-The frontend will be at http://localhost:5173 and backend at http://localhost:4000.
+The frontend and backend will start on their respective default ports.
 
 ## Project Structure
 
@@ -104,11 +104,7 @@ For the frontend, I went with React + Vite for fast development and Tailwind CSS
 ```bash
 # Backend tests
 cd backend && yarn test
-
-# Frontend linting
-cd frontend && yarn lint
 ```
 
----
 
-Built for a full-stack developer assessment. The code is production-ready but simplified for the assignment scope. 
+---
