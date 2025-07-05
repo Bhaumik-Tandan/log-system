@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create axios instance with base configuration
 const API = axios.create({ 
-  baseURL: 'http://localhost:4000',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
@@ -67,11 +67,11 @@ export const logAPI = {
 export const systemAPI = {
   // Health check
   getHealth: () => 
-    axios.get('http://localhost:4000/health').then(res => res.data),
+    axios.get(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000'}/health`).then(res => res.data),
 
   // Get API info
   getAPIInfo: () => 
-    axios.get('http://localhost:4000/').then(res => res.data)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000'}/`).then(res => res.data)
 };
 
 // Legacy functions for backward compatibility

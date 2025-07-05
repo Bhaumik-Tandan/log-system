@@ -84,6 +84,7 @@ yarn start
 ### Frontend Setup
 ```bash
 cd frontend
+cp .env.example .env  # Copy environment configuration
 yarn install
 yarn dev
 ```
@@ -94,6 +95,18 @@ yarn dev
 - **API Documentation**: http://localhost:4000
 
 **Note**: The backend is configured to accept CORS requests from `http://localhost:5173`. If you change the frontend port, update the `CORS_ORIGIN` in your `.env` file.
+
+## 🔧 Environment Configuration
+
+### Backend Environment Variables
+- `PORT` - Server port (default: 4000)
+- `NODE_ENV` - Environment mode (default: development)
+- `CORS_ORIGIN` - Allowed origin for CORS (default: http://localhost:5173)
+- `DB_PATH` - Path to JSON database file (default: ./data/logs.json)
+
+### Frontend Environment Variables
+- `VITE_API_BASE_URL` - Backend API base URL (default: http://localhost:4000)
+- `VITE_APP_TITLE` - Application title (default: Log System)
 
 ## 📚 API Endpoints
 
