@@ -68,5 +68,92 @@
     "metadata": {
       "test": "es-modules"
     }
+  },
+  {
+    "level": "info",
+    "message": "Test log message",
+    "resourceId": "test-server",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "userId": "user1"
+    }
+  },
+  {
+    "level": "invalid-level",
+    "message": "",
+    "metadata": {}
+  },
+  {
+    "level": "info",
+    "message": "Test log message from test",
+    "resourceId": "test-server",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "userId": "user1"
+    }
+  },
+  {
+    "level": "invalid-level",
+    "message": "",
+    "metadata": {}
+  },
+  {
+    "level": "info",
+    "message": "Test log message from test",
+    "resourceId": "test-server",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "userId": "user1"
+    }
+  },
+  {
+    "level": "invalid-level",
+    "message": "",
+    "metadata": {}
+  },
+  {
+    "level": "info",
+    "message": "Test log message from test",
+    "resourceId": "test-server",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "userId": "user1"
+    }
+  },
+  {
+    "level": "info",
+    "message": "Test log message from test",
+    "resourceId": "test-server",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "userId": "user1"
+    }
+  },
+  {
+    "level": "info",
+    "message": "Test log message from test",
+    "resourceId": "test-server",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "userId": "user1"
+    }
   }
 ]

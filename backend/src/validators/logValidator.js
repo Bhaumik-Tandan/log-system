@@ -25,9 +25,27 @@ const validateLog = ajv.compile(logSchema);
 function validateLogEntry(data) {
   const valid = validateLog(data);
   if (!valid) {
-    throw new Error(`Invalid log data: ${JSON.stringify(validateLog.errors)}`);
+    const errorMessages = validateLog.errors.map(error => error.message);
+    throw new Error(`Invalid log data: ${errorMessages.join(', ')}`);
   }
-  return true;
+  return {
+    isValid: true,
+    errors: []
+  };
+}
+
+function validateLogEntryForTest(data) {
+  const valid = validateLog(data);
+  if (!valid) {
+    return {
+      isValid: false,
+      errors: validateLog.errors.map(error => error.message)
+    };
+  }
+  return {
+    isValid: true,
+    errors: []
+  };
 }
 
 function validateFilters(filters) {
@@ -51,4 +69,4 @@ function isValidDate(dateString) {
   return date instanceof Date && !isNaN(date);
 }
 
-export { validateLogEntry, validateFilters }; 
+export { validateLogEntry, validateLogEntryForTest, validateFilters }; 
