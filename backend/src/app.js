@@ -40,7 +40,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes
+// API routes - both /logs and /api/logs for compatibility
+app.use('/logs', logRoutes);
 app.use('/api/logs', logRoutes);
 
 // Root endpoint
