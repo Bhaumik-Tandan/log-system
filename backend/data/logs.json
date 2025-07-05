@@ -1,0 +1,14 @@
+[
+  {
+    "level": "info",
+    "message": "Test log entry",
+    "resourceId": "test-resource",
+    "timestamp": "2024-01-01T12:00:00Z",
+    "traceId": "trace-123",
+    "spanId": "span-456",
+    "commit": "abc123",
+    "metadata": {
+      "test": true
+    }
+  }
+]
